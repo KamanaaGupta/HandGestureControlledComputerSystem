@@ -9,6 +9,7 @@ cap.set(4,height)
 buttonPressed = False
 buttonCounter = 0
 buttonDelay = 5
+select = False
 
 detector = HandDetector(detectionCon = 0.8, maxHands = 2)
 while True:
@@ -26,36 +27,27 @@ while True:
             fingers2 = detector.fingersUp(hand2)
             # print(fingers1,fingers2)
 
-            # Gesture 21 - Terminate
-            if fingers1==[1,0,0,0,0] and fingers2==[1,0,0,0,0]:
-                pyautogui.press("q")
-                buttonPressed = True
+            # # Gesture 21 - Terminate
+            # if fingers1==[1,0,0,0,0] and fingers2==[1,0,0,00]:
+            #     pyautogui.press("w")
+            #     buttonPressed = True
 
-            # Gesture 22 - Escape
-            if fingers1==[0,1,0,0,0] and fingers2==[0,0,0,0,0]:
-                pyautogui.press("esc")  
-                buttonPressed = True
-
-            # Gesture 23 - Windows
-            if fingers1==[0,1,1,0,0] and fingers2==[0,0,0,0,0]:
-                pyautogui.press("win")
-                buttonPressed = True
-
-            # Gesture 24 - Capitalize
-            if fingers1==[0,1,1,1,0] and fingers2==[0,0,0,0,0]:
-                pyautogui.press("capslock")
-                buttonPressed = True
+            # # Gesture 22 - Escape 
+            # if fingers1==[0,1,0,0,0] and fingers2==[0,0,0,0,0]:
+            #     pyautogui.press("esc")  
+            #     buttonPressed = True      
                 
-            # Gesture 25 - NumsLock
-            if fingers1==[0,1,1,1,1] and fingers2==[0,0,0,0,0]:
-                pyautogui.press("numlock")
-                buttonPressed = True
 
-            # Gesture 26 - Full Screen
-            if fingers1==[1,1,1,1,1] and fingers2==[0,0,0,0,0]:
-                with pyautogui.hold("fun"):
-                    pyautogui.press("f11")
-                    buttonPressed = True
+            # # Gesture 23 - Windows
+            # if fingers1==[0,1,1,0,0] and fingers2==[0,0,0,0,0]:
+            #     pyautogui.press("win")
+            #     buttonPressed = True
+
+            # # Gesture 26 - Full Screen
+            # if fingers1==[1,1,1,1,1] and fingers2==[0,0,0,0,0]:
+            #     with pyautogui.hold("fun"):
+            #         pyautogui.press("f11")
+            #         buttonPressed = True
             
         if handType1=="Right":
             # Gesture 1 - Left
@@ -74,7 +66,6 @@ while True:
                 buttonPressed = True
             
             # Gesture 4 - Down
-                
             if fingers1 == [0,1,1,0,0]:
                 pyautogui.press("down")
                 buttonPressed = True
@@ -89,49 +80,46 @@ while True:
                 with pyautogui.hold("alt"):
                     pyautogui.press("f4")
                     buttonPressed = True
-            
-            # Gesture 7 - Minimize
+                
+            # Gesture 7 - Minimize/Maximize
             if fingers1 == [1,1,0,0,0]:
                 with pyautogui.hold("win"):
-                    pyautogui.press("m")
+                    pyautogui.press("d")
                     buttonPressed = True
             
-            # Gesture 8 - Maximize
-            if fingers1 == [1,1,1,0,0]:
-                with pyautogui.hold("win"):
-                    with pyautogui.hold("shift"):
-                        pyautogui.press("m")
-                        buttonPressed = True
-            
-            # Gesture 9 - Screenshot
-            if fingers1 == [0,1,0,0,1]:          
-                with pyautogui.hold("win"):
-                    with pyautogui.hold("shift"):
-                        pyautogui.press("s")
-                        buttonPressed = True
-            
-            # Gesture 10 - Change Desktop Tabs
+            #Gesture 8 - Change Desktop Tabs
             if fingers1 == [0,1,1,1,0]:
-                with pyautogui.hold("alt"):
-                    pyautogui.press("tab") and pyautogui.hold("alt")
+                with pyautogui.hold("win"):
+                    pyautogui.press("tab")
                     buttonPressed = True
+            
+            # Gesture 9 - Go to Back
+            if fingers1 == [0,0,1,1,1]:
+                pyautogui.press("backspace")
+                buttonPressed = True
+
+            # Gesture 10 - Right Click
+            if fingers1 == [0,1,0,0,1]:
+                with pyautogui.hold("shift"):
+                    with pyautogui.hold("fun"):
+                        pyautogui.press("f10")
+    
                                                                                                                                                                                 
         else:
             # Gesture 11 - Next Tab
             if fingers1 == [0,1,0,0,0]:
                 pyautogui.press("tab")
-                buttonPressed = True
+                buttonPressed = True 
                 
-            
             # Gesture 12 - Previous Tab
             if fingers1==[0,1,1,0,0]:
                 with pyautogui.hold("shift"):
                     pyautogui.press("tab")
                     buttonPressed = True
             
-            # Gesture 13 - Next Tab in Chrome
+            # Gesture 13 - Next Tab in Chrome                                   
             if fingers1 == [1,0,0,0,0]:
-                with pyautogui.hold("ctrl"):
+                with pyautogui.hold("ctrl"):            
                     pyautogui.press("tab")
                     buttonPressed = True
             
@@ -147,25 +135,24 @@ while True:
                 with pyautogui.hold("ctrl"):
                     pyautogui.press("t")
                     buttonPressed = True
-            
-            # Gesture 16 - Open Recently Closed Tab in Chrome
-            if fingers1 == [0,1,1,1,1]:
-                with pyautogui.hold("ctrl"):
-                    with pyautogui.hold("shift"):
-                        pyautogui.press("t")
-                        buttonPressed = True
-                            
-            # Gesture 17 - Go to Back
-            if fingers1 == [0,1,0,0,1]:
-                pyautogui.press("backspace")
-                buttonPressed = True
 
+            # Gesture 16 - Screenshot
+            if fingers1 == [1,1,1,1,1]:          
+                with pyautogui.hold("win"):
+                    with pyautogui.hold("shift"):
+                        pyautogui.press("s")
+                        buttonPressed = True
+
+             # Gesture 17 - Alt
+            if fingers1 == [0,1,0,0,1]:
+                pyautogui.press("alt")  
+                
             # Gesture 18 - Play/Pause Youtube Video
-            if fingers1 == [1,1,1,1,1]:
+            if fingers1 == [0,1,1,1,1]:
                 pyautogui.press("space")
                 buttonPressed = True
 
-            # Gesture 19 - Volume Up
+            # Gesture 19 - Volume Up    
             if fingers1==[1,1,0,0,0]:
                 pyautogui.press("volumeup")
                 buttonPressed = True
@@ -179,6 +166,7 @@ while True:
         if buttonCounter > buttonDelay:
             buttonCounter = 0
             buttonPressed = False
+            select=False
 
     img = cv2.flip(img, 1)
 
@@ -189,5 +177,3 @@ while True:
         break
 webcam.release()
 cv2.destroyAllWindows()
-
-    
