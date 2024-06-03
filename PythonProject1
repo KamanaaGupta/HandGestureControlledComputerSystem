@@ -25,29 +25,6 @@ while True:
             hand2 = hands[1]
             handType2 = hand2["type"]
             fingers2 = detector.fingersUp(hand2)
-            # print(fingers1,fingers2)
-
-            # # Gesture 21 - Terminate
-            # if fingers1==[1,0,0,0,0] and fingers2==[1,0,0,00]:
-            #     pyautogui.press("w")
-            #     buttonPressed = True
-
-            # # Gesture 22 - Escape 
-            # if fingers1==[0,1,0,0,0] and fingers2==[0,0,0,0,0]:
-            #     pyautogui.press("esc")  
-            #     buttonPressed = True      
-                
-
-            # # Gesture 23 - Windows
-            # if fingers1==[0,1,1,0,0] and fingers2==[0,0,0,0,0]:
-            #     pyautogui.press("win")
-            #     buttonPressed = True
-
-            # # Gesture 26 - Full Screen
-            # if fingers1==[1,1,1,1,1] and fingers2==[0,0,0,0,0]:
-            #     with pyautogui.hold("fun"):
-            #         pyautogui.press("f11")
-            #         buttonPressed = True
             
         if handType1=="Right":
             # Gesture 1 - Left
